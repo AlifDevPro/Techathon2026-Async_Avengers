@@ -33,5 +33,5 @@ export function getAlertPollIntervalMs(): number {
     const ms = parseInt(raw, 10);
     if (!Number.isNaN(ms) && ms >= 5000) return ms;
   }
-  return 15_000;
+  return 30_000;
 }

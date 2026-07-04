@@ -184,7 +184,7 @@ async function handleNaturalMessage(
 }
 
 function startProactiveAlertMonitor(client: Client, config: BotConfig) {
-  const interval = config.alertPollIntervalMs ?? 15_000;
+  const interval = config.alertPollIntervalMs ?? 30_000;
 
   const poll = async () => {
     try {
