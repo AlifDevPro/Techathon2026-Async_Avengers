@@ -18,7 +18,7 @@ The application is **already deployed on AWS EC2** and running in the cloud. You
 
 > **Important — one bot instance only**  
 > The Discord bot is running on the cloud server. If you also run `npm run bot` locally (or start a second Docker container with the same `DISCORD_BOT_TOKEN`), **two bot instances will connect at once** and you may get **duplicate replies** in Discord.  
-> For local development, either use the live deployment above, or stop the cloud bot before running locally.
+
 
 ---
 
