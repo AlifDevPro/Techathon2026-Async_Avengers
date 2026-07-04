@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # Build and push to Docker Hub
-# Usage: ./scripts/docker-publish.sh yourdockerhubusername [tag]
+# Usage: ./scripts/docker-publish.sh [dockerhub-username] [tag]
+# Default: alifahmaddev/office-energy-monitor:latest
 set -euo pipefail
 
-USER="${1:?Usage: $0 <dockerhub-username> [tag]}"
+DOCKER_USER="${1:-alifahmaddev}"
 TAG="${2:-latest}"
-IMAGE="${USER}/office-energy-monitor:${TAG}"
+IMAGE="${DOCKER_USER}/office-energy-monitor:${TAG}"
 
 echo "Building ${IMAGE}..."
 docker build -t "${IMAGE}" .

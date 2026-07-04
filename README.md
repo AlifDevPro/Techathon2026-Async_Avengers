@@ -5,8 +5,26 @@ A real-time office energy monitoring system with a web dashboard and Discord bot
 
 ---
 
+## Live Demo (AWS EC2)
+
+The application is **already deployed on AWS EC2** and running in the cloud. You can try it immediately — no local setup required.
+
+| | Link |
+|---|------|
+| **Dashboard** | [http://65.0.134.6:3000/dashboard](http://65.0.134.6:3000/dashboard) |
+| **Discord** (bot commands & proactive alerts) | [https://discord.gg/ncBueefAV](https://discord.gg/ncBueefAV) |
+
+**Try in Discord:** `!status` · `!room work1` · `!usage` · `!help` — or ask naturally, e.g. *"what's on in the drawing room?"*
+
+> **Important — one bot instance only**  
+> The Discord bot is running on the cloud server. If you also run `npm run bot` locally (or start a second Docker container with the same `DISCORD_BOT_TOKEN`), **two bot instances will connect at once** and you may get **duplicate replies** in Discord.  
+> For local development, either use the live deployment above, or stop the cloud bot before running locally.
+
+---
+
 ## Table of Contents
 
+0. [Live Demo (AWS EC2)](#live-demo-aws-ec2)
 1. [Problem Statement Understanding](#a-problem-statement-understanding)
 2. [Solution Approach and Architecture](#b-solution-approach-and-architecture)
 3. [Technologies Used](#c-technologies-used)
@@ -321,13 +339,13 @@ docker compose up -d
 
 **Pull from Docker Hub (no rebuild):**
 ```bash
-docker pull AlifDevPro/office-energy-monitor:latest
+docker pull alifahmaddev/office-energy-monitor:latest
 
 docker run -d \
   --name office-energy \
   -p 3000:3000 \
   --env-file .env \
-  AlifDevPro/office-energy-monitor:latest
+  alifahmaddev/office-energy-monitor:latest
 ```
 
 ### Verify It Works
@@ -347,13 +365,19 @@ curl http://localhost:3000/api/devices
 
 ```bash
 docker login
-docker build -t AlifDevPro/office-energy-monitor:latest .
-docker push AlifDevPro/office-energy-monitor:latest
+docker build -t alifahmaddev/office-energy-monitor:latest .
+docker push alifahmaddev/office-energy-monitor:latest
 ```
 
-Or:
+Or (defaults to `alifahmaddev` + `latest`):
 ```bash
-bash scripts/docker-publish.sh AlifDevPro latest
+bash scripts/docker-publish.sh
+```
+
+Custom tag:
+```bash
+bash scripts/docker-publish.sh alifahmaddev v1.0.0
+# → alifahmaddev/office-energy-monitor:v1.0.0
 ```
 
 ---

@@ -9,7 +9,7 @@
     "start:bot": "tsx scripts/run-bot.ts",
     "lint": "eslint .",
     "bot": "tsx scripts/run-bot.ts",
-    "docker:build": "docker build -t office-energy-monitor:latest .",
+    "docker:build": "docker build -t alifahmaddev/office-energy-monitor:latest .",
     "docker:run": "docker compose up"
   },
   "dependencies": {

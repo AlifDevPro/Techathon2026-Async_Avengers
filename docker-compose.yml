@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: office-energy-monitor:latest
+    image: alifahmaddev/office-energy-monitor:latest
     container_name: office-energy-monitor
     ports:
       - "${PORT:-3000}:3000"
